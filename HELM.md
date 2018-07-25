@@ -34,8 +34,10 @@ It may not be on the path
 
 ```
 export PATH=/snap/bin:$PATH
+kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
 root@ion-kubernetes-01:~/.kube# cp config /root/snap/helm/common/kube/config
-root@ion-kubernetes-01:~/.kube# helm init
+root@ion-kubernetes-01:~/.kube# helm init --service-account tiller
+
 
 ```
 Verify if it's running
@@ -51,20 +53,6 @@ kube-system   tiller-deploy          1         1         1            1         
 
 Create account 
 
-Use tiller-rbac-config.yml
-
-```
-kubectl create namespace tiller-world
-kubectl create serviceaccount tiller --namespace tiller-world
-
-```
-
-Use tiller-role.yml and tiller-role-binding.yml
-
-```
-helm init --service-account tiller --tiller-namespace tiller-world
-helm init --upgrade
-```
 
 ## Usage
 
@@ -84,12 +72,9 @@ helm install --name test-memcached stable/memcached
 ```
 
 ```
-root@ion-kubernetes-01:/home/malczyk# helm list --tiller-namespace tiller-world --namespace tiller-world
-NAME          	REVISION	UPDATED                 	STATUS	CHART          	NAMESPACE   
-goodly-bird   	1       	Wed Jul 25 14:51:27 2018	FAILED	memcached-2.2.0	tiller-world
-honest-turkey 	1       	Wed Jul 25 14:50:32 2018	FAILED	memcached-2.2.0	tiller-world
-test-memcached	1       	Wed Jul 25 14:50:16 2018	FAILED	memcached-2.2.0	tiller-world
-
+root@ion-kubernetes-01:/home/malczyk# helm list
+NAME          	REVISION	UPDATED                 	STATUS  	CHART          	NAMESPACE
+test-memcached	1       	Wed Jul 25 15:28:52 2018	DEPLOYED	memcached-2.2.0	default  
 ```
 
 
