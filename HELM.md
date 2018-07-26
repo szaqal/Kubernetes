@@ -88,5 +88,12 @@ test-memcached	1       	Wed Jul 25 15:28:52 2018	DEPLOYED	memcached-2.2.0	defaul
 * Packaging ```helm package test-chart```
 
 
+### Repositories
+
+#### S3
+
+```
+helm plugin install https://github.com/hypnoglow/helm-s3.git
+```
 
 * [Google Repo](https://kubernetes-charts.storage.googleapis.com/)
