@@ -77,5 +77,16 @@ NAME          	REVISION	UPDATED                 	STATUS  	CHART          	NAMESP
 test-memcached	1       	Wed Jul 25 15:28:52 2018	DEPLOYED	memcached-2.2.0	default  
 ```
 
+### Others
+
+* ```helm inspect```
+
+## Development
+
+* Create new chart ```helm create test-chart```
+
+* Packaging ```helm package test-chart```
+
+
 
 * [Google Repo](https://kubernetes-charts.storage.googleapis.com/)
