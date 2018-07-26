@@ -95,5 +95,25 @@ test-memcached	1       	Wed Jul 25 15:28:52 2018	DEPLOYED	memcached-2.2.0	defaul
 ```
 helm plugin install https://github.com/hypnoglow/helm-s3.git
 ```
+***This didn't work for me when heml installed through snap***
+
+```
+helm s3 init s3://test-helm
+Initialized empty repository at s3://test-helm
+```
+
+```
+helm repo add test-charts s3://test-helm
+"test-charts" has been added to your repositories
+```
+
+
+```
+helm repo list
+```
+
+```
+helm s3 push --force ./test-chart-0.1.0.tgz  ionate-charts
+```
 
 * [Google Repo](https://kubernetes-charts.storage.googleapis.com/)
