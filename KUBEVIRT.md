@@ -61,6 +61,42 @@ virt-handler-z9p6f                          1/1       Running   0          49s
 virt-handler-zlfbz                          1/1       Running   0          49s
 ```
 
+
+### Nested virtualiation
+
+This may be required whenever kubernets workers are running on VMs instead of bare-metal
+
+```
+$ cat /sys/module/kvm_intel/parameters/nested
+Y
+
+```
+Edit VM
+
+```
+virsh # edit nested_virt
+
+```
+Change CPU line to this
+
+```
+  <cpu mode='host-passthrough'/>
+
+```
+
+Restart VM and verify is all KVM is available
+
+```
+Model name:            Intel(R) Xeon(R) CPU           L5520  @ 2.27GHz
+Stepping:              5
+CPU MHz:               2260.990
+BogoMIPS:              4521.98
+Virtualization:        VT-x
+Hypervisor vendor:     KVM
+Virtualization type:   full
+
+```
+
 ## References
 
 [Kubevirt API](https://kubevirt.io/api-reference/v0.7.0/index.html)
