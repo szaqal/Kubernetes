@@ -61,8 +61,19 @@ virt-handler-z9p6f                          1/1       Running   0          49s
 virt-handler-zlfbz                          1/1       Running   0          49s
 ```
 
+### Verify capabilities
 
-### Nested virtualiation
+To capabilities needs to be available for Kubernetes verify with ``` kubectl get nodes -o yaml```
+
+```
+allocatable:
+  devices.kubevirt.io/kvm: "110"
+  devices.kubevirt.io/tun: "110"
+
+```
+
+
+## Nested virtualiation
 
 This may be required whenever kubernets workers are running on VMs instead of bare-metal
 
