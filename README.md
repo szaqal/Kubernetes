@@ -6,6 +6,7 @@
 
 [KUBEVIRT](KUBEVIRT.md)
 
+[GLUSTERFS](GLUSTERFS.md)
 
 
 #### Show dashboard token
