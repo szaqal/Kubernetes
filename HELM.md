@@ -16,6 +16,8 @@
 
 ### Create service account
 
+[tiller_sa.yml](tiller-rbac-config.yml)
+
 ```
 root@ion-kubernetes-01:/home/malczyk# kubectl create -f tiller_sa.yml 
 serviceaccount/tiller created
