@@ -21,6 +21,10 @@ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | gre
 kubectl delete pod foo --grace-period=0 --force
 ```
 
+### Multi interface hosts
+
+Whenever there are mutliple hosts that share the same iterface name and address You may need to set Calico setup ```IP_AUTODETECTION_METHOD``` since conflicts may happen and this can be avoided.
+
 ## Random notes
 
 * Stateful sets: each of your pods is guaranteed the same network identity and disk across restarts, even if it's rescheduled to a different physical machine.
