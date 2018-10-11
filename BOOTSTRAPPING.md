@@ -34,10 +34,3 @@ kubeadm join 192.168.2.150:6443 --token ir0x2c.3ffnm4vhtncmhok4 --discovery-toke
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
 kubectl -n kube-system edit service kubernetes-dashboard
 ```
-
-
-### Cheetsheet
-
-```
-kubectl get all --all-namespaces
-```

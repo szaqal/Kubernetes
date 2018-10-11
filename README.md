@@ -13,18 +13,10 @@
 
  [Bootstrapping](BOOTSTRAPPING.md)
 
+## Operations
 
-#### Show dashboard token
+ [Cheetsheet](CHEETSHEET.md)
 
-```
-kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
-```
-
-#### Froce pod removal
-
-```
-kubectl delete pod foo --grace-period=0 --force
-```
 
 ### Multi interface hosts
 
