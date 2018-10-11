@@ -49,6 +49,8 @@ spec:
 
 ## Dissallow incoming traffic pod2pod
 
+Dissallow all trafic to pod ```app: memcached```
+
 ```
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
@@ -62,6 +64,8 @@ spec:
 ```
 
 ### Allow from particular pod
+
+Allow ```busybox``` to connect pod ```app: memcached```
 
 ```
 kind: NetworkPolicy
@@ -79,3 +83,34 @@ spec:
             app: busybox
 ```
 
+## Disable all traffic to namespace
+
+```
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: default-deny-all
+  namespace: default
+spec:
+  podSelector: {}
+  ingress: []
+
+```
+
+### Disable request from other namespaces
+
+
+```
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  namespace: testing
+  name: other-namespace
+spec:
+  podSelector:
+    matchLabels:
+  ingress:
+  - from:
+    - podSelector: {}
+
+```
