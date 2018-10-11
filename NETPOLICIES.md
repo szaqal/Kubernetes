@@ -114,3 +114,47 @@ spec:
     - podSelector: {}
 
 ```
+
+#### Allow from particular namespace
+
+
+Will prevent access from default and allow from testing
+
+
+```
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: memcached-allo-from-testing
+spec:
+  podSelector:
+    matchLabels:
+      app: memcached
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: testing
+```
+
+#### Allow some pods to connect to different namespace
+
+```
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: web-allow-all-ns-monitoring
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: memcached
+  ingress:
+    - from:
+      - namespaceSelector:   
+          matchLabels:
+            name: testing 
+        podSelector:        
+          matchLabels:
+            type: busybox
+```
