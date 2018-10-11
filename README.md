@@ -9,6 +9,11 @@
 [GLUSTERFS](GLUSTERFS.md)
 
 
+## Bootstrapping
+
+ [Bootstrapping](BOOTSTRAPPING.md)
+
+
 #### Show dashboard token
 
 ```
