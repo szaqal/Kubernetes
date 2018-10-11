@@ -17,6 +17,8 @@
 
 ## Operations
 
+ [Network Policies](NETPOLICIES.md)
+
  [Cheetsheet](CHEETSHEET.md)
 
 
