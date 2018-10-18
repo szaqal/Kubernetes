@@ -89,6 +89,18 @@ test-memcached	1       	Wed Jul 25 15:28:52 2018	DEPLOYED	memcached-2.2.0	defaul
 
 * Packaging ```helm package test-chart```
 
+## Build-in Objects
+
+* Relase.[Name|Time|Namespace|Service|Revision]
+
+* Values (values.yml)
+
+* Char (Chart.yml)
+
+## Good practices
+
+* Chart names should use lower case letters and numbers, and start with a letter.
+
 
 ### Repositories
 
@@ -119,3 +131,4 @@ helm s3 push --force ./test-chart-0.1.0.tgz  ionate-charts
 ```
 
 * [Google Repo](https://kubernetes-charts.storage.googleapis.com/)
+
