@@ -51,3 +51,5 @@ Whenever there are mutliple hosts that share the same iterface name and address 
 * [Kubevirt](https://github.com/kubevirt/kubevirt)
 
 * [cAdvisor](https://github.com/google/cadvisor)
+
+* [fabric8](http://fabric8.io/guide/index.html)
