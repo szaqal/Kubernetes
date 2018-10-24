@@ -5,4 +5,4 @@ java/kubernetes-client/.classpath
 java/kubernetes-client/.gitignore
 java/kubernetes-client/.project
 java/kubernetes-client/.settings/
-
+java/.recommenders/*
