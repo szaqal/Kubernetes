@@ -1,2 +1,8 @@
 **/*.tgz
 java/kubernetes-client/target/*
+java/.metadata/
+java/kubernetes-client/.classpath
+java/kubernetes-client/.gitignore
+java/kubernetes-client/.project
+java/kubernetes-client/.settings/
+
