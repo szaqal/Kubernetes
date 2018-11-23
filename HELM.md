@@ -127,7 +127,7 @@ helm repo list
 ```
 
 ```
-helm s3 push --force ./test-chart-0.1.0.tgz  ionate-charts
+helm s3 push --force ./test-chart-0.1.0.tgz  test-charts
 ```
 
 * [Google Repo](https://kubernetes-charts.storage.googleapis.com/)
