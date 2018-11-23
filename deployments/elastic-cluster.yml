@@ -62,8 +62,6 @@ spec:
             value: elasticsearch-cluster
           - name: xpack.security.enabled
             value: "false"
-          - name: xpack.notification.slack.account.monitoring.url
-            value: "https://hooks.slack.com/services/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"
           - name: node.name
             valueFrom:
               fieldRef:
