@@ -131,4 +131,4 @@ helm s3 push --force ./test-chart-0.1.0.tgz  test-charts
 ```
 
 * [Google Repo](https://kubernetes-charts.storage.googleapis.com/)
-
+* [Kube Apps] (https://hub.kubeapps.com/)
