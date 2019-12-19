@@ -1,19 +1,6 @@
 # Bootstrapping Kubernetes (Single master)
 
-## Installing particular docker version
-
-
-```
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
- sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-
-sudo apt-get update
-sudo apt-get install docker-ce=17.06.0~ce-0~ubuntu
-```
+Last updated on V 1.17
 
 ## Bootstrap
 
@@ -33,8 +20,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 * Networking setup
 
 ```
-kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
-kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
 ```
 
 ### Joining Worker
@@ -47,18 +33,19 @@ kubeadm join 192.168.2.150:6443 --token ir0x2c.3ffnm4vhtncmhok4 --discovery-toke
 ### Dashboard
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
 kubectl -n kube-system edit service kubernetes-dashboard
 ```
 
 ```
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: admin-user
-  namespace: kube-system
+  namespace: kubernetes-dashboard
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: admin-user
@@ -69,6 +56,6 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: admin-user
-  namespace: kube-system
+  namespace: kubernetes-dashboard
 
 ```
