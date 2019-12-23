@@ -6,6 +6,8 @@
 
 [KUBEVIRT](KUBEVIRT.md)
 
+[ISTIO](ISTIO.md)
+
 [GLUSTERFS](GLUSTERFS.md)
 
 [MetalLB](METALLB.md)
@@ -53,3 +55,4 @@ Whenever there are mutliple hosts that share the same iterface name and address 
 * [cAdvisor](https://github.com/google/cadvisor)
 
 * [fabric8](http://fabric8.io/guide/index.html)
+
