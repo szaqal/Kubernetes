@@ -15,38 +15,16 @@ kubectl create namespace istio-system
 
 ```
 root@kub-master:/home/malczyk# helm install --generate-name istio.io/istio-init --namespace istio-system
-NAME: istio-init-1577103019
-LAST DEPLOYED: Mon Dec 23 12:10:19 2019
-NAMESPACE: istio-system
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
 ```
 
 ```
 root@kub-master:/home/malczyk# helm install istio istio.io/istio --namespace istio-system
+```
 
-NAME: istio
-LAST DEPLOYED: Mon Dec 23 12:12:46 2019
-NAMESPACE: istio-system
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
-NOTES:
-Thank you for installing Istio.
-
-Your release is named Istio.
-
-To get started running application with Istio, execute the following steps:
-1. Label namespace that application object will be deployed to by the following command (take default namespace as an example)
-
-$ kubectl label namespace default istio-injection=enabled
-$ kubectl get namespace -L istio-injection
-
-2. Deploy your applications
-
-$ kubectl apply -f <your-application>.yaml
-
-For more information on running Istio, visit:
-https://istio.io/
+```
+root@kub-master:/home/malczyk# helm ls -n "istio-system"
+NAME                 	NAMESPACE   	REVISION	UPDATED                                	STATUS  	CHART           	APP VERSION
+istio                	istio-system	1       	2019-12-23 12:12:46.084614292 +0000 UTC	deployed	istio-1.4.2     	1.4.2
+istio-init-1577103019	istio-system	1       	2019-12-23 12:10:19.799815946 +0000 UTC	deployed	istio-init-1.4.2	1.4.2
+root@kub-master:/home/malczyk#
 ```
