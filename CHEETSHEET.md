@@ -25,3 +25,9 @@ kubectl get nodes -o wide
 kubectl get pods -o wide --all-namespaces
 
 ```
+
+* Obrain JOIN command
+
+```
+kubeadm token create --print-join-command
+```
