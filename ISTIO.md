@@ -41,7 +41,33 @@ curl -L https://istio.io/downloadIstio | sh -
 istioctl manifest apply 
 ```
 
-```
+
+* Prometheus dashboard ```istioctl  dashboard prometheus prometheus-66c5887c86-dfq5g```
 
 ```
-
+malczyk@kub-master:~$ istioctl proxy-config route memcached-596696cc9b-mfnh8.default
+NOTE: This output only contains routes loaded via RDS.
+NAME                                                                      VIRTUAL HOSTS
+80                                                                        2
+8060                                                                      2
+8080                                                                      2
+9090                                                                      2
+9091                                                                      3
+9901                                                                      2
+15004                                                                     3
+15010                                                                     2
+istio-ingressgateway.istio-system.svc.cluster.local:15030                 1
+istio-ingressgateway.istio-system.svc.cluster.local:15029                 1
+memcached.default.svc.cluster.local:11211                                 1
+kube-dns.kube-system.svc.cluster.local:9153                               1
+istio-telemetry.istio-system.svc.cluster.local:42422                      1
+istio-sidecar-injector.istio-system.svc.cluster.local:443                 1
+istio-ingressgateway.istio-system.svc.cluster.local:15031                 1
+kubernetes-dashboard.kubernetes-dashboard.svc.cluster.local:443           1
+istio-ingressgateway.istio-system.svc.cluster.local:15032                 1
+istio-ingressgateway.istio-system.svc.cluster.local:15020                 1
+dashboard-metrics-scraper.kubernetes-dashboard.svc.cluster.local:8000     1
+15014                                                                     6
+15019                                                                     2
+                                                                          1
+```
