@@ -1,5 +1,7 @@
 # Istio
 
+## HELM
+
 Add repo
 
 ```
@@ -28,3 +30,18 @@ istio                	istio-system	1       	2019-12-23 12:12:46.084614292 +0000 
 istio-init-1577103019	istio-system	1       	2019-12-23 12:10:19.799815946 +0000 UTC	deployed	istio-init-1.4.2	1.4.2
 root@kub-master:/home/malczyk#
 ```
+
+## ISTIOCTL
+
+```
+curl -L https://istio.io/downloadIstio | sh -
+```
+
+```
+istioctl manifest apply 
+```
+
+```
+
+```
+
