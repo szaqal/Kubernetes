@@ -1,6 +1,6 @@
 # Istio
 
-## HELM
+## With HELM (deprecated)
 
 Add repo
 
@@ -31,7 +31,7 @@ istio-init-1577103019	istio-system	1       	2019-12-23 12:10:19.799815946 +0000 
 root@kub-master:/home/malczyk#
 ```
 
-## ISTIOCTL
+## With ISTIOCTL
 
 Pull and extract 
 
