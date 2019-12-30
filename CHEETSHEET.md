@@ -31,3 +31,9 @@ kubectl get pods -o wide --all-namespaces
 ```
 kubeadm token create --print-join-command
 ```
+
+* List candidates for kubectl get 
+
+```
+kubectl api-resources
+```
