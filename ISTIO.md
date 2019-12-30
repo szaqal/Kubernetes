@@ -44,6 +44,13 @@ Initilize
 istioctl manifest apply 
 ```
 
+You can set particular values to
+```
+ istioctl manifest apply --set profile=demo \
+  --set values.global.mtls.auto=true \
+  --set values.global.mtls.enabled=false
+```
+
 Istio Injection
 ```
 root@kub-master:/home/malczyk/k8# kubectl label namespace default istio-injection=enabled
