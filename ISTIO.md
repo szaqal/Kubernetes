@@ -66,3 +66,25 @@ istio-ingressgateway.istio-system.svc.cluster.local:15029                 1
 memcached.default.svc.cluster.local:11211                                 1
 .........
 ```
+
+### Testing
+
+```
+root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl get namespace -L istio-injection
+NAME              STATUS   AGE     ISTIO-INJECTION
+default           Active   6d20h   enabled
+
+root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl create -f deployment.yml
+root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+dummy-http-d6bc685d7-wkpc5   2/2     Running   0          16s
+root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl create -f istio-gw.yml
+root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl create -f istio-vs.yml
+root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl get virtualservices --all-namespaces
+NAMESPACE   NAME         GATEWAYS               HOSTS   AGE
+default     dummy-http   [dummy-http-gateway]   [*]     7s
+
+root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# curl  localhost:30613
+{"time":"2019-12-30T07:31:20Z"}
+root@kub-master:/home/malczyk/DummyApps/dummy-http/istio#
+```
