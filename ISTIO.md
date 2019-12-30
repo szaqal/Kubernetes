@@ -89,4 +89,4 @@ NAME                                                          VIRTUAL HOSTS
 dummy-http.default.svc.cluster.local:80                       1
 ```
 
-[prom](img/prom.png)
+![prom](img/prom.png)
