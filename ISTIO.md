@@ -88,3 +88,5 @@ NOTE: This output only contains routes loaded via RDS.
 NAME                                                          VIRTUAL HOSTS
 dummy-http.default.svc.cluster.local:80                       1
 ```
+
+[prom](img/prom.png)
