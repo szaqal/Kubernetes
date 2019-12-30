@@ -56,16 +56,6 @@ istio-system      Active   2d16h   disabled
 
 * Prometheus dashboard ```istioctl  dashboard prometheus prometheus-66c5887c86-dfq5g```
 
-```
-malczyk@kub-master:~$ istioctl proxy-config route memcached-596696cc9b-mfnh8.default
-NOTE: This output only contains routes loaded via RDS.
-NAME                                                                      VIRTUAL HOSTS
-80                                                                        2
-istio-ingressgateway.istio-system.svc.cluster.local:15030                 1
-istio-ingressgateway.istio-system.svc.cluster.local:15029                 1
-memcached.default.svc.cluster.local:11211                                 1
-.........
-```
 
 ### Testing
 
@@ -78,13 +68,23 @@ root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl create -f depl
 root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl get pods
 NAME                         READY   STATUS    RESTARTS   AGE
 dummy-http-d6bc685d7-wkpc5   2/2     Running   0          16s
+
 root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl create -f istio-gw.yml
 root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl create -f istio-vs.yml
+
 root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# kubectl get virtualservices --all-namespaces
 NAMESPACE   NAME         GATEWAYS               HOSTS   AGE
 default     dummy-http   [dummy-http-gateway]   [*]     7s
 
 root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# curl  localhost:30613
 {"time":"2019-12-30T07:31:20Z"}
-root@kub-master:/home/malczyk/DummyApps/dummy-http/istio#
+
+root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# istioctl proxy-status
+NAME                                                   CDS        LDS        EDS        RDS        PILOT                          VERSION
+dummy-http-d6bc685d7-wkpc5.default                     SYNCED     SYNCED     SYNCED     SYNCED     istio-pilot-d4fd9c9f-x68ch     1.4.2
+
+root@kub-master:/home/malczyk/DummyApps/dummy-http/istio# istioctl proxy-config route dummy-http-d6bc685d7-wkpc5.default
+NOTE: This output only contains routes loaded via RDS.
+NAME                                                          VIRTUAL HOSTS
+dummy-http.default.svc.cluster.local:80                       1
 ```
