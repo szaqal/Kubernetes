@@ -52,9 +52,15 @@ You can set particular values to
 ```
 
 Istio Injection
+
 ```
 root@kub-master:/home/malczyk/k8# kubectl label namespace default istio-injection=enabled
 namespace/default labeled
+```
+
+Check 
+
+```
 root@kub-master:/home/malczyk/k8# kubectl get namespace -L istio-injection
 NAME              STATUS   AGE     ISTIO-INJECTION
 default           Active   6d19h   enabled
