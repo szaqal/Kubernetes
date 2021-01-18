@@ -48,6 +48,17 @@ test-memcached	1       	Wed Jul 25 15:28:52 2018	DEPLOYED	memcached-2.2.0	defaul
 * Chart names should use lower case letters and numbers, and start with a letter.
 
 
+### ISSUES
+
+helm 2.17.0 connection issues required changin pod network CIDR 172.16.0.0/16
+
+and adding
+
+```
+kubectl --namespace=kube-system create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
+```
+
+
 ### Repositories
 
 #### S3
